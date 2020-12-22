@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap'); /*Noto Serif*/
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap'); /*Abel*/
+
+:root {
+    box-sizing: border-box;
+   
+}
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Abel";
+    scroll-behavior: smooth;
+    
+}
+
+
+.navbar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    background-color: #3C3B3B;
+    text-align: left;
+    display: grid;
+    
+}
+
+@media (max-width:799px) {
+
+    .navbar {
+        width: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        height: auto;
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 50% 95%, 45% 100%, 0 100%);
+        position: relative;
+
+    }
+
+}
+
+.navbar img {
+    max-width: 70%;
+    align-self: center;
+    justify-self: center;
+}
+
+@media (max-width: 600px)  {
+    .navbar img {
+        max-width: 50%;
+        margin-top: 0.3rem;
+    }
+}
+.navbar h1 {
+    color: #DFB43B;
+    margin-left: 0.9rem;
+    margin-bottom: 4.5rem;
+    font-family: "Noto Serif"; 
+}
+
+@media (max-width: 600px) {
+
+    .navbar h1 {
+        
+        margin-left: 0.9rem;
+        margin-bottom: 0.2rem;
+        margin-top: 0.8rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}
+
+
+@media (min-width: 601px) {
+
+    .navbar h3 {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar h3 {
+        font-size: 0.7rem;
+        text-align: center;
+        color: white;
+        font-weight: 300;
+        margin-top: 0;
+        padding-bottom: 0.8rem;
+    }
+}
+
+.navbar a {
+display: block;
+font-size: 1.3rem;
+text-decoration: none;
+color: white;
+padding: 3px 8px 3px 16px;
+margin-bottom: 0.2rem;
+}
+
+@media (max-width: 600px) {
+
+    .navbar a {
+        display: none;
+        margin: 0 ;
+        padding: 0;
+        padding-left: 1rem;
+        font-size: 0.6rem;
+    }
+}
+
+
+
+.navbar a:hover {
+    color: #644a03;
+    background-color: rgb(143, 142, 142);
+}
+
+
+
+.main {
+    line-height: 1.4;
+    margin-left: 350px;
+    width: 65%;
+    
+}
+
+
+
+@media (max-width:799px) {
+
+    .main {
+        margin-left: 230px;
+    }
+}
+
+
+@media (max-width:600px) {
+
+    .main {
+        width: 90%;
+        margin-left: 10px;
+    }
+}
+
+
+footer {
+    font-size: 0.7rem;
+    margin-left: 450px;
+    text-align: center;
+}
+
+@media (min-width: 601px) {
+    footer {
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    footer {
+        text-align: center;
+        margin-left: 0;
+    }
+}
+
+footer a {
+color: black;
+font-size: 0.7rem;
+}

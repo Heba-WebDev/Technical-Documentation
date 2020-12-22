@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Introduction to Javascript</title>
+</head>
+<body>
+
+
+<nav class="navbar">
+  <img src="logo.svg" alt="javascript's logo">
+ <h1>The Modern JavaScript Tutorial</h1>
+ <h3>How it's done now. From the basics to advanced topics with simple, but detailed explanations.</h3>   
+<a href="#javascript">An Introduction to JavaScript</a>
+<a href="#hello">Hello, world!</a> 
+<a href="#code_structure">Code structure</a>  
+<a href="#Variables">Variables</a> 
+<a href="#data">Data types</a>     
+
+
+</nav> 
+
+
+<main class="main">
+
+<section class="section" id="javascript">
+
+<h2>An Introduction to JavaScript</h2>  
+<p>Let’s see what’s so special about JavaScript, what we can achieve with it, and what other technologies play well with it.</p>
+<h3>What is JavaScript?</h3>
+<p>JavaScript was initially created to “make web pages alive”.</p>
+<p>The programs in this language are called scripts. They can be written right in a web page’s HTML and run automatically as the page loads.</p>
+<p>Scripts are provided and executed as plain text. They don’t need special preparation or compilation to run.</p>
+<p>In this aspect, JavaScript is very different from another language called Java.</p>
+<h4>Why is it called JavaScript?</h4>
+<p>When JavaScript was created, it initially had another name: “LiveScript”. But Java was very popular at that time, so it was decided that positioning a new language as a “younger brother” of Java would help.</p>
+<p>But as it evolved, JavaScript became a fully independent language with its own specification called ECMAScript, and now it has no relation to Java at all.</p>
+<p>Today, JavaScript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the JavaScript engine.</p>
+<p>The browser has an embedded engine sometimes called a “JavaScript virtual machine”.</p>
+<p>Different engines have different “codenames”. For example:</p>
+<ul>
+  <li>V8 – in Chrome and Opera.</li>
+  <li>SpiderMonkey – in Firefox.</li>
+  <li>…There are other codenames like “Chakra” for IE, “ChakraCore” for Microsoft Edge, “Nitro” and “SquirrelFish” for Safari, etc.</li>
+</ul>
+<h3>What can in-browser JavaScript do?</h3>
+<ul>
+  <li>Add new HTML to the page, change the existing content, modify styles.</li>
+  <li>React to user actions, run on mouse clicks, pointer movements, key presses.</li>
+  <li>Send requests over the network to remote servers, download and upload files (so-called AJAX and COMET technologies).</li>
+  <li>Get and set cookies, ask questions to the visitor, show messages.</li>
+  <li>Remember the data on the client-side (“local storage”).</li>
+</ul>
+<h3>What CAN’T in-browser JavaScript do?</h3>
+<ul>
+  <li>JavaScript on a webpage may not read/write arbitrary files on the hard disk, copy them or execute programs. It has no direct access to OS functions.
+    <br>
+    Modern browsers allow it to work with files, but the access is limited and only provided if the user does certain actions, like “dropping” a file into a browser window or selecting it via an <code> < input > </code> tag.
+  <br>
+  There are ways to interact with camera/microphone and other devices, but they require a user’s explicit permission. So a JavaScript-enabled page may not sneakily enable a web-camera, observe the surroundings and send the information to the NSA.
+  </li>
+  <li>Different tabs/windows generally do not know about each other. Sometimes they do, for example when one window uses JavaScript to open the other one. But even in this case, JavaScript from one page may not access the other if they come from different sites (from a different domain, protocol or port).</li>
+  <li>JavaScript can easily communicate over the net to the server where the current page came from. But its ability to receive data from other sites/domains is crippled. Though possible, it requires explicit agreement (expressed in HTTP headers) from the remote side. Once again, that’s a safety limitation.</li>
+</ul>
+<hr>
+</section>
+
+
+<section class="section" id="hello">
+
+<h2>Hello, world!</h2>
+
+<p>This part of the tutorial is about core JavaScript, the language itself.</p>
+<p>But we need a working environment to run our scripts and, since this book is online, the browser is a good choice. We’ll keep the amount of browser-specific commands (like alert) to a minimum so that you don’t spend time on them if you plan to concentrate on another environment (like Node.js). We’ll focus on JavaScript in the browser in the next part of the tutorial.</p>
+<p>So first, let’s see how we attach a script to a webpage. For server-side environments (like Node.js), you can execute the script with a command like <code>"node my.js"</code></p>
+
+<h3>The “script” tag</h3>
+<p>JavaScript programs can be inserted almost anywhere into an HTML document using the <code> script</code> tag.</p>
+
+<h3>Modern markup</h3>
+<p>
+  The <code>script</code> tag has a few attributes that are rarely used nowadays but can still be found in old code:
+</p>
+  
+<p>The old HTML standard, HTML4, required a <code>script</code> to have a type. Usually it was <code>type="text/javascript".</code> It’s not required anymore. Also, the modern HTML standard totally changed the meaning of this attribute. Now, it can be used for JavaScript modules. But that’s an advanced topic, we’ll talk about modules in another part of the tutorial.</p>
+</p>
+
+<ul>
+  <li>We can use a <code>script</code> tag to add JavaScript code to a page.</li>
+  <li>The <code>type</code> and <code>language</code> attributes are not required.</li>
+  <li>A script in an external file can be inserted with <code> script src="path/to/script.js">/script</code>.</li>
+</ul>
+<hr>
+</section>
+
+
+<section class="section" id="code_structure">
+
+<h2>Code structure</h2>
+<p>The first thing we’ll study is the building blocks of code.</p>
+<h3>Statements</h3>
+<p>Statements are syntax constructs and commands that perform actions</p>
+<p>We’ve already seen a statement, <code>alert('Hello, world!')</code>, which shows the message “Hello, world!”.</p>
+<p>We can have as many statements in our code as we want. Statements can be separated with a semicolon.</p>
+
+<h3>Semicolons</h3>
+<p>A semicolon may be omitted in most cases when a line break exists.</p>
+<p>In most cases, a newline implies a semicolon. But “in most cases” does not mean “always”!</p>
+
+<h3>Comments</h3>
+<p>As time goes on, programs become more and more complex. It becomes necessary to add comments which describe what the code does and why.</p>
+<p>Comments can be put into any place of a script. They don’t affect its execution because the engine simply ignores them.</p>
+<p>One-line comments start with two forward slash characters <code>//.</code></p>
+<hr>
+
+</section>
+
+
+<section class="section" id="Variables">
+
+<h2>Variables</h2>
+
+<p>Most of the time, a JavaScript application needs to work with information. Here are two examples:</p>
+<ol>
+  <li>An online shop – the information might include goods being sold and a shopping cart.</li>
+  <li>A chat application – the information might include users, messages, and much more.</li>
+</ol>
+<p>Variables are used to store this information.</p>
+
+<h3>A variable</h3>
+<p>A variable is a “named storage” for data. We can use variables to store goodies, visitors, and other data.</p>
+<p>To create a variable in JavaScript, use the <code>let</code> keyword.</p>
+
+<h3>A real-life analogy</h3>
+<p>We can easily grasp the concept of a “variable” if we imagine it as a “box” for data, with a uniquely-named sticker on it</p>
+<p>For instance, the variable <code>message</code>  can be imagined as a box labeled <code>"message"</code> with the value <code>"Hello!"</code>  in it:</p>
+<p>We can put any value in the box.</p>
+
+<h3>Variable naming</h3>
+<p>There are two limitations on variable names in JavaScript:</p>
+<ol>
+  <li>The name must contain only letters, digits, or the symbols <code>$</code>  and <code> _.</code></li>
+  <li>The first character must not be a digit.</li>
+</ol>
+<hr>
+</section>
+
+<section class="section" id="data">
+
+<h2>Data types</h2> 
+<p>A value in JavaScript is always of a certain type. For example, a string or a number.</p>
+<p>There are eight basic data types in JavaScript. Here, we’ll cover them in general and in the next chapters we’ll talk about each of them in detail.</p>
+<p>We can put any type in a variable. For example, a variable can at one moment be a string and then store a number</p>
+
+<h3>Number</h3>
+<p>The <code>number</code> type represents both integer and floating point numbers.</p>
+<p>There are many operations for numbers, e.g. multiplication <code>*</code>, division <code>/</code>, addition <code>+</code>, subtraction <code>-</code>, and so on.</p>
+<p>Besides regular numbers, there are so-called “special numeric values” which also belong to this data type: <code>Infinity</code>, <code>-Infinity</code> and <code>NaN</code>.</p>
+
+<h3>String</h3>
+<p>A string in JavaScript must be surrounded by quotes.</p>
+
+<p>In JavaScript, there are 3 types of quotes:</p>
+<ol>
+  <li>Double quotes: <code>"Hello"</code></li>
+  <li>Single quotes: <code>'Hello'</code></li>
+  <li>Backticks: <code>`Hello`code></li>
+    
+</section>
+
+
+
+</main>
+<hr>
+<footer> All the infomration on this page belongs to &copy;<a href="https://javascript.info/" target="_blank">Javascript.info</a> </footer>
+</body>
+</html>
